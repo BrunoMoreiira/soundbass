@@ -1,2 +1,3 @@
 # soundbass
-Projeto em Node de uma aplicação de musica 
+Projeto em Node de uma aplicação de musica em next.js
+
