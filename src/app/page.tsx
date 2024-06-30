@@ -29,7 +29,6 @@ const LoadingContainer = styled.div`
 export default function Home() {
   return (
     <LoadingContainer>
-      <h1>oii</h1>
       <HourglassIcon />
     </LoadingContainer>
   );

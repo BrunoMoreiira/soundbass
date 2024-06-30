@@ -7,7 +7,7 @@ export default function notFound() {
     <div className="min-h-screen w-full bg-transparent">
       <div className="z-10">
         <h1 className="text-2xl font-extrabold text-center">
-          Obs... Essa página ainda não foi desenvolvida!
+          Obs... Essa página ainda não foi desenvolvida em andamento!
         </h1>
         <p className="font-light italic text-center text-muted-foreground">
           Volte para a{" "}
