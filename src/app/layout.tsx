@@ -1,22 +1,40 @@
-import type { Metadata } from "next";
+"use client";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+import { ContextWrapper } from "@/contexts/ContextWrapper";
+import { Toast, ToastProvider } from "@radix-ui/react-toast";
+import ReactQueryClientProvider from "@/components/ReactQueryClientProvider/ReactQueryClientProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const font = Inter({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+});
 
-export const metadata: Metadata = {
-  title: "SoundBass",
-  description: "O melhor para você escutar",
-};
+if (process.env.NODE_ENV === "production") {
+  console.log = () => {};
+  console.error = () => {};
+  console.warn = () => {};
+  console.info = () => {};
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="pt-br">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <ContextWrapper>
+      <html lang="pt_BR">
+        <body className={cn(font.className, "h-screen w-screen overflow-hidden")}>
+          <ReactQueryClientProvider>
+            <ToastProvider>
+              <Toast />
+              {children}
+            </ToastProvider>
+          </ReactQueryClientProvider>
+        </body>
+      </html>
+    </ContextWrapper>
   );
 }
